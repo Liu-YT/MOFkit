@@ -139,9 +139,7 @@ string element_format(string &ele) noexcept(false) {
         ele[0] = toupper(ele[0]);
         ele[1] = tolower(ele[1]);
     }
-    else {
-        throw Exception(ele + " is illegal");
-    }
+
     return ele;
 }
 

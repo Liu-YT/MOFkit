@@ -12,6 +12,9 @@
 #
 #######################################################################
 data_WAJZUE
+_chemical_formula_moiety         'C10 H15 Br1 O3'
+_chemical_name_systematic        
+(1'R*,2R*,2'S*)-2-(2-Bromo-1-hydroxycyclohexyl)-2-hydroxycyclobutanone
 _symmetry_space_group_name_H-M    "P 1"
 _symmetry_int_tables_number 1
 loop_
@@ -24,6 +27,42 @@ _cell_angle_alpha                90
 _cell_angle_beta                 90
 _cell_angle_gamma                90
 _cell_volume                     2130.18
+_cell_formula_units_Z            8
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_site_symmetry_1
+_geom_bond_site_symmetry_2
+Br1 C6 1_555 1_555
+O1 C1 1_555 1_555
+O2 H1 1_555 1_555
+O3 H2 1_555 1_555
+C1 C2 1_555 1_555
+C2 H3 1_555 1_555
+H4 C2 1_555 1_555
+C3 C2 1_555 1_555
+H5 C3 1_555 1_555
+H6 C3 1_555 1_555
+C4 O2 1_555 1_555
+C5 O3 1_555 1_555
+C6 C5 1_555 1_555
+H7 C6 1_555 1_555
+C7 C6 1_555 1_555
+H8 C7 1_555 1_555
+H9 C7 1_555 1_555
+C8 C7 1_555 1_555
+H10 C8 1_555 1_555
+H11 C8 1_555 1_555
+C9 C8 1_555 1_555
+H12 C9 1_555 1_555
+H13 C9 1_555 1_555
+C10 C5 1_555 1_555
+H14 C10 1_555 1_555
+H15 C10 1_555 1_555
+C1 C4 1_555 1_555
+C3 C4 1_555 1_555
+C4 C5 1_555 1_555
+C9 C10 1_555 1_555
 loop_
 _atom_site_label
 _atom_site_type_symbol

@@ -36,6 +36,7 @@ class CIF
 {
 
 public:
+    string filename;
     
     CIF(string _filename, bool _log = true) { 
         this->filename = _filename;
@@ -225,6 +226,10 @@ public:
         return this->atom_cd;
     }
 
+    map<string, double> get_atom_dist() {
+        return this->atom_dist;
+    }
+
     map<string, set<vector<double>>> get_atom_cd_set() {
         if(!this->atom_cd_set.empty()) {
             return this->atom_cd_set;
@@ -258,16 +263,16 @@ public:
             string atom_b = values[3];
             double distance = iter->second;
 
-            auto a = radius_dict.find(atom_a), b = radius_dict.find(atom_b);
+            auto a = radius_dict.find(get_species(atom_a)), b = radius_dict.find(get_species(atom_b));
 
             if(a == radius_dict.end()) {
                 a = radius_dict.find(Universal);
-                // throw Exception(atom_a + " 's radius not found");
+                throw Exception(atom_a + " 's radius not found");
             }
 
             if(b == radius_dict.end()) {
                 b = radius_dict.find(Universal);
-                // throw Exception(atom_b + " 's radius not found");
+                throw Exception(atom_b + " 's radius not found");
             }
 
             double radius_a = get_num(a->second.radius);
@@ -747,12 +752,12 @@ private:
 
             if(a == radius_dict.end()) {
                 a = radius_dict.find(Universal);
-                // throw Exception(atom_a + " 's radius not found");
+                throw Exception(atom_a + " 's radius not found");
             }
 
             if(b == radius_dict.end()) {
                 b = radius_dict.find(Universal);
-                // throw Exception(atom_b + " 's radius not found");
+                throw Exception(atom_b + " 's radius not found");
             }
 
             double radius_a = get_num(a->second.radius);
@@ -825,7 +830,7 @@ private:
 
         string chem_formula = "";
         for(auto iter = cnt.begin(); iter != cnt.end(); iter++) {
-            chem_formula += iter->first + (iter->second == 1 ? "" : to_string(iter->second));
+            chem_formula += iter->first + to_string(iter->second);
         }
         return chem_formula;
     }
@@ -839,7 +844,6 @@ private:
     // detail log
     bool log;
 
-    string filename;
     string cif_buf;
    
     map<string, vector<string>> loop_dict;

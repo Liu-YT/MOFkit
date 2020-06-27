@@ -7,7 +7,7 @@
 Process files to find information about space groups in files (`_symmetry_\name_H-M\name_Hall`), then convert the symmetric information into hall form and save it.
 
 ### Get transformation matrix
-
+ 
 Processing symmetrical information to obtain two transformation matrices of coordinates. The transformation matrix **sym** holds symmetry about xyz, and the transformation matrix **offset** holds offset about xyz.
 
 

@@ -78,7 +78,6 @@ int main(int argc, char *argv[]) {
             }
             else {
                 cerr << item << " space group not found!" << endl;
-                continue;
             }
             
             string key = f1 + "|" + f2 + "|" + f3;

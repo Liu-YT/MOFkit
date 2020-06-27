@@ -69,6 +69,7 @@ int main(int argc, char *argv[]) {
                 f3 = to_string(Hall2Number[HM2Hall[name_HM]]);
             }
             else {
+                // cout << name_Hall << " " << name_HM << endl;
                 cerr << item << " space group not found!" << endl;
                 continue;
             }

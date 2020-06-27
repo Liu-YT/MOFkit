@@ -7,7 +7,7 @@ using namespace std;
 int main(int argc, char *argv[]) {
     // cmd
     cmdline::parser parser;
-    parser.add<string>("cif_in", 'i', "input MOF cif file", true, "");
+    parser.add<string>("input_path", 'i', "input MOF cif file", true, "");
     parser.add<string>("output_path", 'o', "output filepath", false);
     parser.add("force", 'f', "remove solvent molecules anyway");
 
@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
         isForce = true;
     }
 
-    CIF cif = CIF(parser.get<string>("cif_in"));
+    CIF cif = CIF(parser.get<string>("input_path"));
 
     try {
         cif.parse_file();

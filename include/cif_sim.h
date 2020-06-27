@@ -1,18 +1,22 @@
 #ifndef CIF_SIMILARITY_H
 #define CIF_SIMILARITY_H
 
+#include <iomanip>
 #include "conf.h"
 #include "exception.h"
 #include "conf.h"
 #include "cif.h"
 #include "./fp/fplib.h"
 
+using std::left;
+using std::setw;
+
 const int lmax = 0;
 const double cutoff = 5.0;
 
 int natx;
 
-double get_fp_similarity(CIF &a, CIF &b);
+double get_fp_similarity(CIF &a, CIF &b, bool print = false);
 
 void get_fp_periodic(CIF &a);
 
@@ -21,7 +25,7 @@ int get_natx(int nat, double lattice[3][3], double cutoff);
 double get_cutoff();
 
 /* base on fringerprint */
-double get_fp_similarity(CIF &a, CIF &b) {
+double get_fp_similarity(CIF &a, CIF &b, bool print) {
     int lseg, l, nat = 0;
     int ntype = elements.size();;
 
@@ -117,6 +121,11 @@ double get_fp_similarity(CIF &a, CIF &b) {
         }        
     }
 
+    natx = get_natx(nat, a_lattice, cutoff);
+    if(get_ixyz(a_lattice, cutoff) > 1e4 || get_ixyz(b_lattice, cutoff) > 1e4) {
+        return -100;
+    }
+    
     // // in-cell
     // map<string, set<vector<double>>> b_atom_cd = in_cell(b);
 
@@ -140,8 +149,6 @@ double get_fp_similarity(CIF &a, CIF &b) {
     //     }
     // }
 
-    natx = get_natx(nat, a_lattice, cutoff);
-
     double **a_sfp, **a_lfp, **b_sfp, **b_lfp;
     
     a_sfp = (double **) malloc(sizeof(double)*nat);
@@ -164,6 +171,44 @@ double get_fp_similarity(CIF &a, CIF &b) {
     auto s = a.get_atom_cd_set();
     int f[s.size()];
     double dis = get_fpdistance_periodic(nat, ntype, types, natx * lseg, a_lfp, b_lfp, f);
+
+    if(print) {
+        cout.flags(ios::fixed);
+        cout.precision(10);
+        cout << setw(50) << left << get_filename(a.filename) <<
+            setw(50) << left << get_filename(b.filename);
+
+        // array: nat X (natx * lseg)
+        // a fingerprint
+        cout << "[";
+        for(int i = 0; i < nat; i++) {
+            cout << "[";
+            for(int j = 0; j < natx * lseg; j++) {
+                cout << a_lfp[i][j];
+                if(j != natx*lseg - 1) {
+                    cout << " ";
+                }
+            }
+            cout << "]";
+        }
+        cout << "]";
+
+        // b fingerprint
+        cout << "[";
+        for(int i = 0; i < nat; i++) {
+            cout << "[";
+            for(int j = 0; j < natx * lseg; j++) {
+                cout << b_lfp[i][j];
+                if(j != natx*lseg - 1) {
+                    cout << " ";
+                }
+            }
+            cout << "]";
+        }
+        cout << "]";
+
+        cout << setw(50) << left << dis << endl;         
+    }
 
     for(i = 0; i < nat; i++) {
         free(a_sfp[i]);

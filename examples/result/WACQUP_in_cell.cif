@@ -1,0 +1,90 @@
+#######################################################################
+#
+#                 Cambridge Crystallographic Data Centre
+#                                CCDC 
+#
+#######################################################################
+#
+# If this CIF has been generated from an entry in the Cambridge 
+# Structural Database, then it will include bibliographic, chemical, 
+# crystal, experimental, refinement or atomic coordinate data resulting 
+# from the CCDC's data processing and validation procedures.
+#
+#######################################################################
+data_WACQUP
+_chemical_formula_moiety         '(C1 H5 N2 1+)n,n(I3 Sn1 1-)'
+_chemical_name_systematic        'catena-[Formamidinium tris(\m~2~-iodo)-tin]'
+_symmetry_space_group_name_H-M    "P 1"
+_symmetry_int_tables_number 1
+loop_
+_symmetry_equiv_pos_as_xyz
+'x, y, z'
+_cell_length_a                   6.321(4)
+_cell_length_b                   6.321(4)
+_cell_length_c                   6.321(4)
+_cell_angle_alpha                90
+_cell_angle_beta                 90
+_cell_angle_gamma                90
+_cell_volume                     252.556
+_cell_formula_units_Z            1
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_site_symmetry_1
+_geom_bond_site_symmetry_2
+I1 Sn1 1_555 1_555
+Sn1 I1_2 1_555 1_555
+C1 N1 1_555 1_555
+N1 N1D 1_555 1_555
+I1_2 Sn1_2 1_555 1_555
+I1D Sn1 1_555 1_555
+I1D_2 Sn1 1_555 1_555
+I1H Sn1 1_555 1_555
+I1H_2 Sn1 1_555 1_555
+Sn1_3 I1D 1_555 1_555
+Sn1_4 I1 1_555 1_555
+N1A C1 1_555 1_555
+N1D C1 1_555 1_555
+N1E C1 1_555 1_555
+N1H C1 1_555 1_555
+N1I C1 1_555 1_555
+N1 N1E 1_555 1_555
+N1 N1H 1_555 1_555
+N1 N1I 1_555 1_555
+N1A N1D 1_555 1_555
+N1A N1E 1_555 1_555
+N1A N1H 1_555 1_555
+N1A N1I 1_555 1_555
+N1D N1H 1_555 1_555
+N1D N1I 1_555 1_555
+N1E N1H 1_555 1_555
+N1E N1I 1_555 1_555
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_B_iso_or_equiv
+C1        C         0              0              0              1.000          
+C2        C         0              1              0              1.000          
+I1        I         0              0.5            0.5            1.000          
+I2        I         0.5            0              0.5            1.000          
+I3        I         0.5            0.5            0              1.000          
+I4        I         0.5            0.5            1              1.000          
+I5        I         0.5            1              0.5            1.000          
+I6        I         1              0.5            0.5            1.000          
+N1        N         0              0              0.159          1.000          
+N2        N         0              0              0.841          1.000          
+N3        N         0              0.159          0              1.000          
+N4        N         0              0.841          0              1.000          
+N5        N         0              1              0.159          1.000          
+N6        N         0              1              0.841          1.000          
+N7        N         0.159          0              0              1.000          
+N8        N         0.159          1              0              1.000          
+N9        N         0.841          0              0              1.000          
+N10       N         0.841          1              0              1.000          
+Sn1       Sn        0.5            0.5            0.5            1.000          
+
+
+#END

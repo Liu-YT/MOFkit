@@ -82,6 +82,8 @@ int main(int argc, char *argv[]) {
 
     vector<string> files = get_all_files(input, "cif");
     set<string> files_set;
+
+    get_res();
     for(auto item : files) {
         try {
             if(log) {
@@ -97,10 +99,10 @@ int main(int argc, char *argv[]) {
 
             CIF cif = CIF(item, log);
             cif.parse_file();
-            cif.get_known_res();
+            // cif.get_known_res();
             
             bool satisfy = true;
-
+            
             // judge whether contain special metal                
             if(!rm && !keep) {
                 set<string> atoms = cif.get_atoms();
@@ -161,8 +163,9 @@ int main(int argc, char *argv[]) {
             }
 
             // judge whether contain bonds
+            satisfy = true;
             if(!rm && !keep) {
-
+                
             } 
             else if(rm) {
                 for(auto &ele : sp_bonds) {
@@ -195,10 +198,12 @@ int main(int argc, char *argv[]) {
             }
 
             // judge wheather contain known solvent
+            satisfy = true;
             cif.find_solvent(false);
             vector<string> solvent_chk_list = cif.get_solvent_chk_list();
             for(auto &sol : solvent_chk_list) {
                 if(solvent_dict.count(sol) > 0) {
+                    cout << sol << endl;
                     satisfy = false;
                     break;
                 }
@@ -232,7 +237,6 @@ int main(int argc, char *argv[]) {
             if(log) {
                 cerr << err.msg << endl;
             }
-            return -1;
         }
     }
 
